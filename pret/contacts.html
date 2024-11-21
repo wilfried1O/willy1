@@ -1,0 +1,98 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Prêts en Ligne</div>
+            <ul class="menu">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Catalogue des Prêts</a></li>
+                <li><a href="#">Demander un Prêt</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="btn-connexion">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+<!-- Section Contact Information -->
+<section class="contact-info">
+   <center>
+    <div class="contact-info-container">
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>contact@exemple.com</p>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Téléphone</h3>
+            <p>+33 1 23 45 67 89</p>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <h3>Horaires d'ouverture</h3>
+            <p>Lun-Ven: 9h00 - 18h00</p>
+        </div>
+    </div>
+   </center>
+</section>
+
+<!-- Formulaire de Contact -->
+<section class="contact-form">
+    <h2>Nous contacter</h2>
+    <form action="send_message.php" method="POST">
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="votre message ici ....................
+            ........................." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Envoyer le Message</button>
+    </form>
+</section>
+
+<!-- Section Réseaux sociaux -->
+<section class="social-media">
+    <h2>Suivez-nous sur les réseaux sociaux</h2>
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank" class="social-icon">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2024 Mon Site. Tous droits réservés.</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="profile-container">
+    <header class="profile-header">
+        <h1>Profil Utilisateur</h1>
+        <a href="deconnexion.php" class="logout-btn">Déconnexion</a>
+    </header>
+
+   
+
+    <section class="password-change-section">
+        <h2>Changer de Mot de Passe</h2>
+        <form action="update_password.php" method="POST" class="password-form">
+            <div class="form-group">
+                <label>Mot de Passe Actuel :</label>
+                <input type="password" name="current_password" required>
+            </div>
+            <div class="form-group">
+                <label>Nouveau Mot de Passe :</label>
+                <input type="password" name="new_password" required>
+            </div>
+            <div class="form-group">
+                <label>Confirmer le Nouveau Mot de Passe :</label>
+                <input type="password" name="confirm_password" required>
+            </div>
+            <button type="submit" class="change-password-btn">Mettre à jour le Mot de Passe</button>
+        </form>
+    </section>
+
+    <section class="loan-history-section">
+        <h2>Historique des Prêts</h2>
+        <div class="loan-history-list">
+            <?php if (!empty($loans)): ?>
+                <?php foreach ($loans as $loan): ?>
+                    <div class="loan-item">
+                        <h3><?= htmlspecialchars($loan['type_pret']) ?> - <?= htmlspecialchars($loan['objet'] ?? $loan['montant'] . '€') ?></h3>
+                        <p><strong>Date de Demande :</strong> <?= htmlspecialchars($loan['date_demande']) ?></p>
+                        <p><strong>Durée :</strong> <?= htmlspecialchars($loan['duree']) ?> mois</p>
+                        <p><strong>Status :</strong> <?= htmlspecialchars($loan['status']) ?></p>
+                    </div>
+                <?php endforeach; ?>
+           
+        </div>
+    </section>
+</div>
+
+</body>
+<style>
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f6fa;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-header h1 {
+    font-size: 24px;
+    color: #2f3640;
+}
+
+.logout-btn {
+    background-color: #e84118;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+section h2 {
+    font-size: 20px;
+    color: #40739e;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #dcdde1;
+    padding-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: #2f3640;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #dcdde1;
+    font-size: 16px;
+}
+
+.update-info-btn,
+.change-password-btn {
+    background-color: #44bd32;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.update-info-btn:hover,
+.change-password-btn:hover {
+    background-color: #4cd137;
+}
+
+.loan-history-list {
+    margin-top: 15px;
+}
+
+.loan-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #dcdde1;
+    border-radius: 5px;
+    background-color: #f7f9f9;
+}
+
+.loan-item h3 {
+    font-size: 18px;
+    color: #4cd137;
+}
+
+.loan-item p {
+    font-size: 14px;
+    color: #57606f;
+    margin-top: 5px;
+}
+
+</style>
+</html>
